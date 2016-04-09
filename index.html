@@ -17,7 +17,7 @@
       </div>
     </div>
     <div class='row'>
-      <div class='col-xs-12 col-sm-8 col-md-10 store'>
+      <div class='col-xs-12 col-sm-8 col-md-8 store'>
         <div class='store-title'>
           Available Products
         </div>
@@ -29,27 +29,33 @@
             <span ng-if='item.sale' ng-bind='item.sale_text' class='sale-text'></span>
           </div>
         </div>
-        <div class='reset-cart'>
+        <div class='reset-cart' ng-click="resetCart()">
           Reset Cart
         </div>
       </div>
 
 
-      <div class='col-xs-4 col-md-2 cart'>
+      <div class='col-xs-4 col-md-4 cart'>
         <div class='cart-title'>
           Cart
         </div>
-        <div ng-if='cartItems.length  > 0' class='cart-contents'>
-          <div data-ng-repeat='item in cartItems' class='store-contents'>
-            <span ng-bind='item.name'></span> - <span ng-bind='item.quantity'></span> <span class='price' ng-bind='item.total_price |  currency : $ : 2'></span>
+        <div ng-if='cartItems.length  > 0'>
+          <div data-ng-repeat='item in cartItems' class='cart-contents'>
+            <button class='remove-btn pull-left' ng-click='removeItem(item)'><i class="fa fa-trash"></i></button>
+            <div class='cart-info' ng-bind='item.name'></div>
+            <div class='cart-price' ng-bind='item.total_price |  currency : $ : 2'></div>
+            <div class='cart-quantity' ng-bind='item.quantity'></div>
           </div>
         </div>
         <div ng-if='cartItems.length < 1' class='cart-contents'>
-          You have nothing in your cart.
+          <div class='empty'>
+            You have nothing in your cart.
+          </div>
         </div>
         <div class='total'>
-          Total: <span ng-bind='cartPrice |  currency : $ : 2'></span>
+          <div class='center-total' ng-bind='cartPrice |  currency : $ : 2'></div>
         </div>
+      </div>
       </div>
     </div>
   </div>

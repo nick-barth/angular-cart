@@ -10,18 +10,32 @@
 .cart{
   margin-top:10px;
   background-color:#F4F4F4;
-  text-align:center;
-  min-height:300px;
 }
 .cart-title{
   font-size:18px;
   color:#00A9E0;
   padding-top:25px;
+  text-align:center;
 }
 .cart-contents{
-  margin:auto;
-  padding:50px;
+  padding-top:12px;
 }
+.cart-info{
+  float:left;
+  width:30%;
+}
+.cart-quantity{
+  margin: auto;
+  width:30%;
+  text-align:center;
+}
+.cart-price{
+  float:right;
+  width:30%;
+  color:green;
+  text-align:right;
+}
+
 .store-title{
   font-size:22px;
   padding:20px;
@@ -33,9 +47,6 @@
   border:none;
   color:#fff;
 }
-.add-btn:hover{
-
-}
 .sale-text{
   color:red;
   font-size:12px;
@@ -46,4 +57,34 @@
 }
 .price{
   float:right;
+  color:#78BE20;
+}
+.total{
+  margin:auto;
+  background-color:#F4F4F4;
+  color:#78BE20;
+  width:120px;
+  height:120px;
+  border:8px solid #78BE20;
+  border-radius:50%;
+  margin-top:80px;
+  margin-bottom:10px;
+}
+.center-total{
+  line-height:104px;
+  text-align:center;
+  font-size:24px;
+}
+.reset-cart{
+  width:200px;
+  height:40px;
+  background-color:#E45DBF;
+  color:white;
+  border-radius:25px;
+  text-align:center;
+  line-height:40px;
+  float:right;
+}
+.empty{
+  text-align:center;
 }
