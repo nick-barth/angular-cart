@@ -29,9 +29,9 @@
             <span ng-if='item.sale' ng-bind='item.sale_text' class='sale-text'></span>
           </div>
         </div>
-        <div class='reset-cart' ng-click="resetCart()">
+        <button class='reset-cart' ng-click="resetCart()">
           Reset Cart
-        </div>
+        </button>
       </div>
 
 
@@ -44,7 +44,7 @@
             <button class='remove-btn pull-left' ng-click='removeItem(item)'><i class="fa fa-trash"></i></button>
             <div class='cart-info' ng-bind='item.name'></div>
             <div class='cart-price' ng-bind='item.total_price |  currency : $ : 2'></div>
-            <div class='cart-quantity' ng-bind='item.quantity'></div>
+            <input type='number' ng-change="updateTotal()" class='cart-quantity' ng-model='item.quantity'></input>
           </div>
         </div>
         <div ng-if='cartItems.length < 1' class='cart-contents'>

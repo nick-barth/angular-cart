@@ -76,7 +76,7 @@
     $scope.removeItem = function(item) {
       for (var i = 0; i < $scope.cartItems.length; i++) {
         if ($scope.cartItems[i].id == item.id) {
-          if ($scope.cartItems[i].quantity == 1) {
+          if ($scope.cartItems[i].quantity < 2) {
             $scope.cartItems.pop(i);
           } else {
             $scope.cartItems[i].quantity--;
@@ -88,13 +88,20 @@
 
     $scope.resetCart = function(){
       $scope.cartItems = [];
+      for (var i = 0; i < $scope.items.length; i++){
+        if($scope.items[i].sale == 1){
+          $scope.items[i].price = $scope.items[i].original_price;
+        }
+      }
       $scope.updateTotal();
     }
 
     $scope.updateTotal = function() {
       for (var i = 0; i < $scope.cartItems.length; i++) {
-        //sale item
-        if ($scope.cartItems[i].sale == 1) {
+        if($scope.cartItems[i].quantity < 1){
+          $scope.cartItems.pop(i);
+        }
+        else if ($scope.cartItems[i].sale == 1) {
           $scope.cartItems[i].sale_calculation();
         } else {
           $scope.cartItems[i].total_price = $scope.cartItems[i].original_price * $scope.cartItems[i].quantity;
@@ -102,6 +109,7 @@
       }
       //add em up
       $scope.cartPrice = 0;
+
       for (var i = 0; i < $scope.cartItems.length; i++) {
         $scope.cartPrice += $scope.cartItems[i].total_price;
       }
