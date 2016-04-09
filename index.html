@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="UTF-8" />
+  <title>Shopping Cart</title>
+  <link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+  <link rel="stylesheet" type="text/css" href="style.css">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
+</head>
+
+<body>
+  <div class='container' ng-app='CartApp' ng-controller="CartCtrl">
+    <div class='row'>
+      <div class='banner col-md-12'>
+        <img class='logo' src="logo.png" alt="Student Loan GENIUS">
+      </div>
+    </div>
+    <div class='row'>
+      <div class='col-xs-12 col-sm-8 col-md-10 store'>
+        <div class='store-title'>
+          Available Products
+        </div>
+        <div data-ng-repeat='item in items' class='store-contents'>
+          <div class='sale-item'>
+            <button class='add-btn' ng-click='addItem(item)'><i class="fa fa-plus"></i></button>
+            <span ng-bind='item.name'></span> - <span ng-bind='item.id'></span> <span class='price' ng-bind='item.price | currency : $ : 2'></span>
+            <br />
+            <span ng-if='item.sale' ng-bind='item.sale_text' class='sale-text'></span>
+          </div>
+        </div>
+        <div class='reset-cart'>
+          Reset Cart
+        </div>
+      </div>
+
+
+      <div class='col-xs-4 col-md-2 cart'>
+        <div class='cart-title'>
+          Cart
+        </div>
+        <div ng-if='cartItems.length  > 0' class='cart-contents'>
+          <div data-ng-repeat='item in cartItems' class='store-contents'>
+            <span ng-bind='item.name'></span> - <span ng-bind='item.quantity'></span> <span class='price' ng-bind='item.total_price |  currency : $ : 2'></span>
+          </div>
+        </div>
+        <div ng-if='cartItems.length < 1' class='cart-contents'>
+          You have nothing in your cart.
+        </div>
+        <div class='total'>
+          Total: <span ng-bind='cartPrice |  currency : $ : 2'></span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script src="https://code.jquery.com/jquery-2.2.2.min.js" integrity="sha256-36cp2Co+/62rEAAYHLmRCPIych47CvdM+uTBJwSzWjI=" crossorigin="anonymous"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.9/angular.min.js"></script>
+  <script src="app.js"></script>
+</body>
+
+</html>
