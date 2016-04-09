@@ -15,7 +15,7 @@
       total_price: 0,
       sale_text: 'BULK SAVINGS EXTREME LIQUIDATION OUR LOSS IS YOUR GAIN',
       sale_calculation: function() {
-        if (this.quantity > 3) {
+        if (this.quantity >= 3) {
           this.price = this.sale_price;
         } else {
           this.price = this.original_price;
