@@ -28,6 +28,9 @@
   margin: auto;
   width:28%;
   text-align:center;
+  background-color:#F4F4F4;
+  border:none;
+  border-bottom: dashed 1px black;
 }
 .cart-price{
   float:right;
@@ -47,8 +50,12 @@
   border:none;
   color:#fff;
 }
+.remove-btn{
+  border:none;
+  background-color:#F4F4F4;
+}
 .sale-text{
-  color:red;
+  color:#E45DBF;
   font-size:12px;
   padding-left:25px;
 }

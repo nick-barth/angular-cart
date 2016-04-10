@@ -44,7 +44,7 @@
             <button class='remove-btn pull-left' ng-click='removeItem(item)'><i class="fa fa-trash"></i></button>
             <div class='cart-info' ng-bind='item.name'></div>
             <div class='cart-price' ng-bind='item.total_price |  currency : $ : 2'></div>
-            <input type='number' ng-change="updateTotal()" class='cart-quantity' ng-model='item.quantity'></input>
+            <input type='number' ng-change="inputBlur()" class='cart-quantity' ng-model='item.quantity'></input>
           </div>
         </div>
         <div ng-if='cartItems.length < 1' class='cart-contents'>

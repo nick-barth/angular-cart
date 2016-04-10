@@ -77,7 +77,7 @@
       for (var i = 0; i < $scope.cartItems.length; i++) {
         if ($scope.cartItems[i].id == item.id) {
           if ($scope.cartItems[i].quantity < 2) {
-            $scope.cartItems.pop(i);
+            $scope.cartItems.splice(i,1);
           } else {
             $scope.cartItems[i].quantity--;
           }
@@ -95,11 +95,14 @@
       }
       $scope.updateTotal();
     }
+    $scope.inputBlur = function(){
+      $scope.updateTotal();
+    };
 
     $scope.updateTotal = function() {
       for (var i = 0; i < $scope.cartItems.length; i++) {
         if($scope.cartItems[i].quantity < 1){
-          $scope.cartItems.pop(i);
+          $scope.cartItems.splice(i,1);
         }
         else if ($scope.cartItems[i].sale == 1) {
           $scope.cartItems[i].sale_calculation();
